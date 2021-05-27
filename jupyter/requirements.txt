@@ -1,4 +1,4 @@
-pandas
-plotly
-scikit-learn
-matplotlib
+pandas==1.2.4
+plotly==4.14.3
+scikit-learn==0.24.2
+matplotlib==3.4.2
