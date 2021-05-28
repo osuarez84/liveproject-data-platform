@@ -3,7 +3,7 @@ import numpy as np
 from joblib import dump, load
 from fastapi import FastAPI
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import List, Optional, Dict
 
 # Define input object model
 class InputItem(BaseModel):
@@ -14,6 +14,7 @@ class InputItem(BaseModel):
 class OutputItem(BaseModel):
     is_inlier: bool
     anomaly_score: Optional[float] = None
+
 
 
 clf = load('model.joblib')

@@ -12,6 +12,8 @@ fastapi = "*"
 uvicorn = "*"
 
 [dev-packages]
+pytest = "*"
+requests = "*"
 
 [requires]
 python_version = "3.9"
