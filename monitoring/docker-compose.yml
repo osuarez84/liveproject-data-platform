@@ -2,7 +2,20 @@ version: '3'
 volumes:
   prometheus_data:
   grafana_data:
+
 services:
+  model:
+    image: osuarez/lp-service:latest
+    build:
+      context: ../service
+      dockerfile: Dockerfile
+    container_name: service
+    restart: unless-stopped
+    expose:
+      - "8000"
+    ports:
+      - "8000:8000"
+
   prometheus:
     image: prom/prometheus:v2.20.0
     container_name: prometheus
@@ -16,6 +29,7 @@ services:
     restart: unless-stopped
     expose:
       - "9090"
+
   grafana:
     image: grafana/grafana:7.1.1
     container_name: grafana
@@ -29,6 +43,7 @@ services:
       - GF_SECURITY_ADMIN_USER=${ADMIN_USER-admin}
       - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD-admin}
       - GF_USERS_ALLOW_SIGN_UP=false
+
   caddy:
     image: stefanprodan/caddy
     container_name: caddy
