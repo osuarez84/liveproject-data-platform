@@ -10,6 +10,7 @@ scikit-learn = "==0.24.2"
 matplotlib = "==3.4.2"
 fastapi = "*"
 uvicorn = "*"
+prometheus-client = "*"
 
 [dev-packages]
 pytest = "*"
